@@ -1,10 +1,32 @@
 import yfinance as yf
 from datetime import datetime, timezone
+import argparse
 
 from bs import call_price, put_price, greeks, implied_vol
+parser = argparse.ArgumentParser(
+    description="Options Risk Card using Black-Scholes (IV + Greeks)"
+)
 
-ticker = "SPY"
-option_type = "call"  # "call" or "put"
+parser.add_argument(
+    "--ticker",
+    type=str,
+    default="SPY",
+    help="Underlying ticker symbol (default: SPY)"
+)
+
+parser.add_argument(
+    "--type",
+    type=str,
+    choices=["call", "put"],
+    default="call",
+    help="Option type: call or put (default: call)"
+)
+
+args = parser.parse_args()
+
+ticker = args.ticker.upper()
+option_type = args.type.lower()
+
 r = 0.05
 
 t = yf.Ticker(ticker)
