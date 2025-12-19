@@ -1,6 +1,6 @@
 # Options Risk Card (Black–Scholes IV + Greeks)
 
-A small Python tool that pulls live option chain data for **SPY/QQQ** and prints a clean “risk card”:
+A small Python tool that pulls live option chain data for **SPY** and prints a clean “risk card”:
 market mid price, implied volatility (solved), and Black–Scholes Greeks (delta/gamma/theta/vega).
 
 This is **not a trading bot** and does not predict price. It’s a risk/exposure tool to understand what you’re actually holding.
